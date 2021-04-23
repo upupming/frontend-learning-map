@@ -25,6 +25,9 @@
 - https://vuejs.org/
 - https://reactjs.org/
 - https://lerna.js.org/
+- https://vitejs.dev/
+- https://expressjs.com/
+- https://koajs.com/
 
 ## 熟悉源码
 
@@ -38,3 +41,11 @@
 ## 其他学习路线
 
 - https://andreasbm.github.io/web-skills/
+- https://github.com/louzhedong/blog
+
+## 知识积累
+
+- 前端工程化: https://github.com/woai3c/introduction-to-front-end-engineering
+- https://github.com/ascoders/weekly
+- https://github.com/seognil/fe-foundation
+- https://github.com/liubin/promises-book
