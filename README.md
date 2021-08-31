@@ -51,6 +51,7 @@
 ## 前端面试资料
 
 - https://github.com/haizlin/fe-interview
+- https://github.com/youngjuning/react-interview
 - https://github.com/ascoders/weekly
 - https://lxchuan12.gitee.io/
 - https://github.com/yangshun/-end-interview-handbook
@@ -126,3 +127,10 @@
 
 1. https://dev.w3.org/html5/html-author/
 2. https://html.spec.whatwg.org/
+
+## 前端每日一题
+
+- [防抖和节流](daily-fe-problems/debounce-throttle.spec.ts)
+    - 防抖和节流的区别是，防抖一上来就是先等待执行，而节流是先执行了再等待，从代码上可以看到区别，具体适用场景的话，
+        - debounce 常用于窗口 resize 和键盘输入，当稳定之后再执行逻辑能够减少资源消耗
+        - 如果用户滑到底部发送 API 请求，显然用 throttle 合适，因为 debounce 会对请求进行延迟
