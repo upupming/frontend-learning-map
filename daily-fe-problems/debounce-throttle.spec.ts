@@ -14,7 +14,7 @@ function debounce<F extends (...args: any[]) => void> (fn: F, timeout: number) {
       clearTimeout(timerId)
     }
     timerId = setTimeout(() => {
-      fn(args)
+      fn(...args)
       timerId = null
     }, timeout)
   }
@@ -23,17 +23,17 @@ function debounce<F extends (...args: any[]) => void> (fn: F, timeout: number) {
 describe('debounce', () => {
   it('should execute only once in timeout', async () => {
     let [accumulator, times, timeout] = [0, 100, 50]
-    const add = jest.fn(() => { accumulator += 1 })
+    const add = jest.fn((a: number) => { accumulator += a })
     const addDebounced = debounce(add, timeout)
     for (let i = 0; i < times; i++) {
-      addDebounced()
+      addDebounced(1)
       // 由于是延时执行，这里一定没有执行，必须后面等待完毕
       expect(add).toHaveBeenCalledTimes(0)
     }
     await new Promise((resolve) => setTimeout(resolve, 100))
     expect(add).toHaveBeenCalledTimes(1)
     expect(accumulator).toEqual(1)
-    addDebounced(); addDebounced()
+    addDebounced(1); addDebounced(1)
     await new Promise((resolve) => setTimeout(resolve, 100))
     expect(add).toHaveBeenCalledTimes(2)
     expect(accumulator).toEqual(2)
@@ -64,7 +64,7 @@ function throttleNoTimer<F extends (...args: any[]) => void> (fn: F, timeout: nu
   return function throttled (...args: any[]) {
     const nowTime = Date.now()
     if (!lastTime || nowTime - lastTime > timeout) {
-      fn.apply(args)
+      fn(...args)
       lastTime = nowTime
     }
   }
@@ -73,17 +73,17 @@ function throttleNoTimer<F extends (...args: any[]) => void> (fn: F, timeout: nu
 describe('throttle', () => {
   it('should execute only once in timeout', async () => {
     let [accumulator, times, timeout] = [0, 100, 50]
-    const add = jest.fn(() => { accumulator += 1 })
+    const add = jest.fn((a: number) => { accumulator += a })
     const addThrottled = throttle(add, timeout)
     for (let i = 0; i < times; i++) {
-      addThrottled()
+      addThrottled(1)
       // 由于是立即执行，这里一定至少已经执行了依次
       expect(add).toHaveBeenCalledTimes(1)
     }
     await new Promise((resolve) => setTimeout(resolve, 100))
     expect(add).toHaveBeenCalledTimes(1)
     expect(accumulator).toEqual(1)
-    addThrottled(); addThrottled()
+    addThrottled(1); addThrottled(1)
     await new Promise((resolve) => setTimeout(resolve, 100))
     expect(add).toHaveBeenCalledTimes(2)
     expect(accumulator).toEqual(2)
