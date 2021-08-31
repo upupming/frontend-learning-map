@@ -56,6 +56,19 @@ function throttle<F extends (...args: any[]) => void> (fn: F, timeout: number) {
     }
   }
 }
+/**
+ * 不需要 timer 也可以实现 throttle
+ */
+function throttleNoTimer<F extends (...args: any[]) => void> (fn: F, timeout: number) {
+  let lastTime: number|null = null
+  return function throttled (...args: any[]) {
+    const nowTime = Date.now()
+    if (!lastTime || nowTime - lastTime > timeout) {
+      fn.apply(args)
+      lastTime = nowTime
+    }
+  }
+}
 
 describe('throttle', () => {
   it('should execute only once in timeout', async () => {
