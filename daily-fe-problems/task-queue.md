@@ -41,6 +41,86 @@ JS 引擎线程是单线程，但是浏览器必须要利用一些其他的线�
 
 微任务和宏任务是绑定的，每个宏任务在执行时，会创建自己的微任务队列。微任务的执行时长会影响到当前宏任务的时长。比如一个宏任务在执行过程中，产生了 100 个微任务，执行每个微任务的时间是 10 毫秒，那么执行这 100 个微任务的时间就 是 1000 毫秒，也可以说这 100 个微任务让宏任务的执行时间延长了 1000 毫秒。所以 你在写代码的时候一定要注意控制微任务的执行时长。在一个宏任务中，分别创建一个用于回调的宏任务和微任务，无论什么情况下，微任务都 早于宏任务执行。
 
+## 具体例子
+
+需要注意的是 Promise 在 new 的时候就会立即执行定义函数里面的代码，然后 resolve() 之后会将后面的一连串 .then 放入一个微任务，然后等待执行。具体来说可以看 https://segmentfault.com/q/1010000022578087 :
+
+```js
+setTimeout(function () {
+    console.log('a')
+}, 0);
+
+
+new Promise(function (resolve) {
+    console.log('b');
+
+    for (let i = 0; i < 10000; i++) {
+        i == 99 && resolve();
+    }
+
+}).then(function () {
+    console.log('c')
+}).then(function () {
+    console.log('d')
+});
+
+console.log('e');
+/*
+b
+e
+c
+d
+a
+*/
+```
+
+```js
+new Promise((resolve, reject) => {
+    console.log('11')
+    resolve()
+}).then(() => {
+    console.log('12')
+})
+
+new Promise((resolve, reject) => {
+    console.log('21')
+    resolve()
+}).then(() => {
+    console.log('22')
+})
+/*
+11
+21
+12
+22
+*/
+```
+
+```js
+new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve()
+    }, 0)
+}).then(() => {
+    console.log('resolved1')
+})
+new Promise((resolve, reject) => {
+    resolve()
+}).then(() => {
+    console.log('resolved2')
+})
+console.log('sync')
+/*
+sync
+resolved2
+resolved1
+*/
+
+```
+
+关于 Promise 真的是一个人一个理解的方法，不管了，只要得出来的表现一致就好了。只要理解了上面 3 个例子就 OK 了。
+
 ## 参考链接
 
 1. https://mp.weixin.qq.com/s/H9rbU_HNRuzhM0slBws5tg
+2. http://latentflip.com/loupe
