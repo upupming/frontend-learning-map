@@ -137,3 +137,4 @@
         - debounce 常用于窗口 resize 和键盘输入，当稳定之后再执行逻辑能够减少资源消耗
         - 如果用户滑到底部发送 API 请求，显然用 throttle 合适，因为 debounce 会对请求进行延迟
 - 2021-09-01: [任务队列、事件循环、宏任务、微任务](daily-fe-problems/task-queue.md)
+- 2021-09-04: [CSS 居中方案](daily-fe-problems/css-center-element.html)
