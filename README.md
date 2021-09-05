@@ -16,6 +16,11 @@
     - [English 4th version](books/css-the-definitive-guide-4th.pdf)
 - [深入浅出 Node.js](books/深入浅出Node.js.pdf)
 - [拉钩教育学习大纲](books/「大前端高薪训练营」-_拉勾教育_v2.2.pdf)
+- [CSS 世界、CSS 选择器世界、CSS 新世界 by 张鑫旭](https://www.zhangxinxu.com/wordpress/2021/08/css%E6%96%B0%E4%B8%96%E7%95%8C/)
+- [CSS 揭秘](https://book.douban.com/subject/26745943/)
+- [深入理解 ES6](https://github.com/nzakas/understandinges6)
+- [Webpack实战：入门、进阶与调优](https://book.douban.com/subject/34430881/)
+- [JavaScript设计模式与开发实践](https://book.douban.com/subject/26382780/)
 
 ## 官方文档
 
@@ -50,11 +55,13 @@
 
 ## 前端面试资料
 
+- https://github.com/lgwebdream/FE-Interview
 - https://github.com/haizlin/fe-interview
 - https://github.com/youngjuning/react-interview
 - https://github.com/ascoders/weekly
 - https://lxchuan12.gitee.io/
 - https://github.com/yangshun/-end-interview-handbook
+- https://github.com/poetries/FE-Interview-Questions
 - https://github.com/KieSun/fucking-end
 - https://github.com/qianguyihao/Web
 - https://github.com/woai3c/Front-end-basic-knowledge
@@ -138,3 +145,4 @@
         - 如果用户滑到底部发送 API 请求，显然用 throttle 合适，因为 debounce 会对请求进行延迟
 - 2021-09-01: [任务队列、事件循环、宏任务、微任务](daily-fe-problems/task-queue.md)
 - 2021-09-04: [CSS 居中方案](daily-fe-problems/css-center-element.html)
+- 2021-09-05: [开发中常用的 Content-Type](daily-fe-problems/content-type.md)
