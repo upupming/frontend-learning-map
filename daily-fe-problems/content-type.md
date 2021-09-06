@@ -76,6 +76,12 @@ Content-Type: text/xml
 
 ```
 
+## 进度回调
+
+XMLHttpRequest 如果是上传和下载文件的话，可以监听 `progress` 事件，从而知道当前的上传和下载进度。
+
+`axios` 也对 `progress` 提供了支持，在配置里面可以传一个 [`onUploadProgress`](https://github.dev/axios/axios/blob/90205f8ab7f73e6b3a2507bdd67a4f47ef57af9e/test/specs/progress.spec.js#L28-L28) 函数接收进度回调。
+
 ## 参考资料
 
 1. https://github.com/lgwebdream/FE-Interview/issues/1208

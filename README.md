@@ -146,3 +146,4 @@
 - 2021-09-01: [任务队列、事件循环、宏任务、微任务](daily-fe-problems/task-queue.md)
 - 2021-09-04: [CSS 居中方案](daily-fe-problems/css-center-element.html)
 - 2021-09-05: [开发中常用的 Content-Type](daily-fe-problems/content-type.md)
+- 2021-09-06: [HTTP 2、HTTP 3 有哪些新特性](daily-fe-problems/http2.md)
