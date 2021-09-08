@@ -12,7 +12,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.spec.ts'],
+      files: ['**/*.spec.ts', '**/*.spec.js'],
       plugins: ['jest'],
       env: {
         'jest/globals': true
