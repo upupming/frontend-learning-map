@@ -132,7 +132,7 @@ const fnMiddleware = function(context){
 fnMiddleware(ctx).then(handleResponse).catch(onerror);
 ```
 
-把下面高亮的部分等加成 `dispatch(1)` 就可以理解了，中间件 `fn0` 内部执行 `next()` 的时候，实际上执行的是 `dispatch(1)`，这样就实现了控制权交接和 next 的返回值的获取。
+把下面高亮的部分等价成 `dispatch(1)` 就可以理解了，中间件 `fn0` 内部执行 `next()` 的时候，实际上执行的是 `dispatch(1)`，这样就实现了控制权交接和 next 的返回值的获取。
 
 ![2021-09-11](https://i.loli.net/2021/09/11/qo89uF74OjbWJ6w.png)
 
@@ -214,3 +214,11 @@ it('should compose w/ other compositions', () => {
     ])({}).then(() => assert.deepEqual(called, [1, 2, 3]))
 })
 ```
+
+## 总结和感受
+
+以前总是觉得源码很难，看别人的总结，现在通过实践发现其实源码看起来挺简单的，不懂的时候也可以断点调试，通过简单的 koa 的源码，我以后可能会更有信心看一些大项目的源码了，非常感谢若川大哥的源码共读群。
+
+koa-compose 很好地利用了 JS 弱类型和高阶函数的特性，因此代码是非常简洁的，我看了 `@types/koa-compose` 的源码，TS 类型不能处理的特别完美（根据 middleware 情况，tuple 长度从 1 枚举到 8，最后加了一个 array 的情况）。感觉 Vue 2 最初可能也是这样，就不是为了 TS 而设计的，所以用 TS 比较麻烦。
+
+另外川哥也说 koa-compose 属于职责链模式的设计模式，建议我看一下他的 redux 的 compose，我接下来也准备继续看了~，另外曾探的《JavaScript设计模式与开发实践》第十三章也讲了这个设计模式，感兴趣同学可以看下。
