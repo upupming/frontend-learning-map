@@ -152,3 +152,4 @@
 - 2021-09-09: [React Diff 算法](daily-fe-problems/react-diff.md)
 - 2021-09-10: [koa-compose 源码解析](daily-fe-problems/koa-compose-analysis.md)
 - 2021-09-11: [Redux compose 源码解读](daily-fe-problems/redux-compose.md)
+- 2021-09-12: [css sticky 属性](daily-fe-problems/css-sticky.md)
