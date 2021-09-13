@@ -29,6 +29,7 @@
 - https://eslint.org/
 - https://www.typescriptlang.org/docs/handbook/intro.html
 - https://babeljs.io/
+    - babel release notes: https://babeljs.io/blog/2018/08/27/7.0.0#pure-annotation-support
 - https://vuejs.org/
 - https://reactjs.org/
 - https://lerna.js.org/
@@ -153,3 +154,5 @@
 - 2021-09-10: [koa-compose 源码解析](daily-fe-problems/koa-compose-analysis.md)
 - 2021-09-11: [Redux compose 源码解读](daily-fe-problems/redux-compose.md)
 - 2021-09-12: [css sticky 属性](daily-fe-problems/css-sticky.md)
+- 2021-09-13: [ES2022: Class static block](daily-fe-problems/class-static-block.spec.ts)
+- 2021-09-14: 列表渲染的时候 key 到底有什么用
