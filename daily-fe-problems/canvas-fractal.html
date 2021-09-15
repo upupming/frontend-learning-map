@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://mp.weixin.qq.com/s/Lv0lcgBTohulTuf5102X8g"
+      ><h1>如何用 canvas 画出分形图</h1></a
+    >
+    <canvas id="canvas1" width="300" height="300"></canvas>
+    <canvas id="canvas2" width="300" height="300"></canvas>
+    <canvas id="canvas3" width="300" height="300"></canvas>
+  </body>
+  <script>
+    const canvas1 = document.getElementById('canvas1');
+    let ctx = canvas1.getContext('2d');
+    ctx.strikeStyle = '#000';
+    ctx.beginPath();
+    const y = 50;
+    ctx.moveTo(0, y);
+    hexagon(ctx, 0, y, 50, y, 0, 6);
+
+    // 注意 x-y 坐标是左上角开始，因此你看上去的顺时针旋转其实是逆时针旋转
+    function hexagon(ctx, x1, y1, x2, y2, n, m) {
+      ctx.clearRect(0, 0, 300, 300);
+
+      // 顺时针 60度
+      ctx.moveTo(x2, y2);
+
+      const x3 =
+        x2 +
+        (x2 - x1) * Math.cos(Math.PI / 3) +
+        (y2 - y1) * Math.sin(Math.PI / 3);
+
+      const y3 =
+        y2 -
+        (x2 - x1) * Math.sin(Math.PI / 3) +
+        (y2 - y1) * Math.cos(Math.PI / 3);
+
+      ctx.lineTo(x3, y3);
+
+      // 逆时针 120度
+      const x4 =
+        x3 +
+        (x3 - x2) * Math.cos((Math.PI * 2) / 3) -
+        (y3 - y2) * Math.sin((Math.PI * 2) / 3);
+
+      const y4 =
+        y3 +
+        (y3 - y2) * Math.cos((Math.PI * 2) / 3) +
+        (x3 - x2) * Math.sin((Math.PI * 2) / 3);
+
+      ctx.lineTo(x4, y4);
+
+      ctx.stroke();
+
+      n++;
+
+      if (n === m) {
+        return false;
+      } else {
+        hexagon(ctx, x3, y3, x4, y4, n, m);
+      }
+    }
+
+    const canvas2 = document.getElementById('canvas2');
+    ctx = canvas2.getContext('2d');
+    class Vector {
+      constructor(x = 1, y = 0) {
+        this.x = x;
+        this.y = y;
+      }
+      copy() {
+        return new Vector(this.x, this.y);
+      }
+      add(v) {
+        this.x += v.x;
+        this.y += v.y;
+        return this;
+      }
+      sub(v) {
+        this.x -= v.x;
+        this.y -= v.y;
+        return this;
+      }
+      cross(v) {
+        return this.x * v.y - v.x * this.y;
+      }
+      dot(v) {
+        return this.x * v.x + v.y * this.y;
+      }
+      scale(s) {
+        this.x *= s;
+        this.y *= s;
+        return this;
+      }
+      rotate(rad) {
+        /*
+        逆时针旋转矩阵（可以自己手推一下）：
+        [cos beta    -sin beta   [x
+         sin beta     cos beta]    y]
+        =
+        [x (cos beta) - y (sin beta)
+         x (sin beta) + y (cos beta)
+         ]
+        */
+        const c = Math.cos(rad),
+          s = Math.sin(rad);
+
+        const [x, y] = this;
+
+        this.x = x * c + y * -s;
+
+        this.y = x * s + y * c;
+
+        return this;
+      }
+      *[Symbol.iterator]() {
+        yield this.x;
+        yield this.y;
+      }
+    }
+    (() => {
+      // 首先将 canvas 坐标系进行上下翻转，形成我们习惯的坐标方式。
+      ctx.translate(0, canvas2.height);
+      ctx.scale(1, -1);
+      const v0 = new Vector(0, 250);
+      const v1 = new Vector(50, 250);
+      hexagon2(ctx, v0, v1, 0, 6);
+      function hexagon2(ctx, v0, v1, n, m) {
+        // 对差值向量进行旋转，然后在 v1 上加这个方向向量就可以
+        const v2 = v1.copy().sub(v0);
+
+        v2.rotate((60 * Math.PI) / 180).add(v1); // 逆时针 60度
+
+        const v3 = v2.copy().sub(v1);
+
+        v3.rotate((-120 * Math.PI) / 180).add(v2); // 顺时针 120度
+
+        ctx.beginPath();
+
+        ctx.moveTo(...v1);
+
+        ctx.lineTo(...v2);
+
+        ctx.lineTo(...v3);
+
+        ctx.stroke();
+
+        n++;
+
+        if (n === m) {
+          return false;
+        } else {
+          hexagon2(ctx, v2, v3, n, m);
+        }
+      }
+    })();
+
+    const canvas3 = document.getElementById('canvas3');
+    ctx = canvas3.getContext('2d');
+    ctx.translate(0, canvas3.height);
+    ctx.scale(1, -1);
+    const v1 = new Vector(100, 100);
+    const v2 = new Vector(100, 0).add(v1);
+    const v3 = new Vector(100, 0).rotate((60 * Math.PI) / 180).add(v1);
+    let deep = 3;
+    koch(ctx, v1, v2, 0, deep);
+    koch(ctx, v2, v3, 0, deep);
+    koch(ctx, v3, v1, 0, deep);
+    function koch(ctx, v1, v2, n, m) {
+      ctx.clearRect(0, 0, 300, 300); //每次绘图前清除画板
+
+      const oneThirdVector = v2
+        .copy()
+        .sub(v1)
+        .scale(1 / 3);
+
+      const v3 = oneThirdVector.copy().add(v1);
+
+      const v4 = oneThirdVector.copy().scale(2).add(v1);
+
+      const v5 = v4
+        .copy()
+        .sub(v3)
+        .rotate((-60 * Math.PI) / 180)
+        .add(v3);
+
+      n++;
+
+      if (n === m) {
+        //绘图（连线） 当前层级与设定层级一致时候停止递归
+
+        ctx.moveTo(...v1);
+
+        ctx.lineTo(...v3);
+
+        ctx.lineTo(...v5);
+
+        ctx.lineTo(...v4);
+
+        ctx.lineTo(...v2);
+
+        ctx.stroke();
+
+        return false;
+      }
+
+      //递归调用绘图
+
+      koch(ctx, v1, v3, n, m);
+
+      koch(ctx, v3, v5, n, m);
+
+      koch(ctx, v5, v4, n, m);
+
+      koch(ctx, v4, v2, n, m);
+    }
+  </script>
+</html>
