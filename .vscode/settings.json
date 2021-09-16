@@ -20,6 +20,6 @@
     "editor.formatOnSave": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["Deque"],
+  "cSpell.words": ["Deque", "esbuild", "vite"],
   "editor.tabSize": 2
 }
