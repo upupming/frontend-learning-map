@@ -157,3 +157,4 @@
 - 2021-09-13: [ES2022: Class static block](daily-fe-problems/class-static-block.spec.ts)
 - 2021-09-15: [canvas 分形](daily-fe-problems/canvas-fractal.html)
 - 2021-09-16: [为什么 esbuild 那么快](daily-fe-problems/why-esbuild-fast.md)
+- 2021-09-17: [update-notifier 源码解析](daily-fe-problems/update-notifier-analysis.md)
