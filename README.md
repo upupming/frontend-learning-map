@@ -158,4 +158,5 @@
 - 2021-09-15: [canvas 分形](daily-fe-problems/canvas-fractal.html)
 - 2021-09-16: [为什么 esbuild 那么快](daily-fe-problems/why-esbuild-fast.md)
 - 2021-09-17: [update-notifier 源码解析](daily-fe-problems/update-notifier-analysis.md)
-- 2021-09-19: [VSCode WebView 开发架构]](daily-fe-problems/vscode-webview.md)
+- 2021-09-19: [VSCode WebView 开发架构](daily-fe-problems/vscode-webview.md)
+- 2021-09-26: [validate-npm-package-name 源码解析](daily-fe-problems/validate-npm-package-name-analysis.md)
