@@ -160,3 +160,4 @@
 - 2021-09-17: [update-notifier 源码解析](daily-fe-problems/update-notifier-analysis.md)
 - 2021-09-19: [VSCode WebView 开发架构](daily-fe-problems/vscode-webview.md)
 - 2021-09-26: [validate-npm-package-name 源码解析](daily-fe-problems/validate-npm-package-name-analysis.md)
+- 2021-10-09: [create-vue 发布并成为官方推荐](daily-fe-problems/create-vue-learning.md)
