@@ -115,13 +115,13 @@
     - 著有 [通过源码分析nodejs原理](https://github.com/theanarkh/understand-nodejs)
 16. 杨扬: https://github.com/dexteryy, https://www.zhihu.com/people/dexteryy
     - 字节跳动基础工程大佬，WenInfra 成员
-17. 若川视野: https://github.com/lxchuan12，https://www.zhihu.com/people/lxchuan12
+17. 若川视野: https://github.com/lxchuan12, https://www.zhihu.com/people/lxchuan12
     - [若川的博客](https://lxchuan12.gitee.io/)
 18. sshsunlight: https://github.com/sl1673495, https://www.zhihu.com/people/ssh-fe
     - WebInfra 成员，微信公众号「前端从进阶到入院」
 19. 黄轶: https://github.com/ustbhuangyi, https://www.zhihu.com/people/huang-yi-50-6
     - Vue 源码解析讲的很不错: https://github.com/ustbhuangyi/vue-analysis
-20. 尤玉溪: , https://www.zhihu.com/people/evanyou
+20. 尤雨溪: , https://www.zhihu.com/people/evanyou, https://github.com/yyx990803
     - Vue 创始人
 21. 云谦: https://github.com/sorrycc
     - 阿里 umi 维护者
