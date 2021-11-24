@@ -18,6 +18,7 @@
 - [拉钩教育学习大纲](books/「大前端高薪训练营」-_拉勾教育_v2.2.pdf)
 - [CSS 世界、CSS 选择器世界、CSS 新世界 by 张鑫旭](https://www.zhangxinxu.com/wordpress/2021/08/css%E6%96%B0%E4%B8%96%E7%95%8C/)
 - [CSS 揭秘](https://book.douban.com/subject/26745943/)
+- [CSS in Depth](books/CSS_in_Depth_(2018).pdf)
 - [深入理解 ES6](https://github.com/nzakas/understandinges6)
 - [Webpack实战：入门、进阶与调优](https://book.douban.com/subject/34430881/)
 - [JavaScript设计模式与开发实践](https://book.douban.com/subject/26382780/)
@@ -161,3 +162,11 @@
 - 2021-09-19: [VSCode WebView 开发架构](daily-fe-problems/vscode-webview.md)
 - 2021-09-26: [validate-npm-package-name 源码解析](daily-fe-problems/validate-npm-package-name-analysis.md)
 - 2021-10-09: [create-vue 发布并成为官方推荐](daily-fe-problems/create-vue-learning.md)
+- 2021-10-09: [为什么 React hooks 不能写在 if 判断中](daily-fe-problems/why-cannot-conditional-react-hooks.md)
+
+<!--
+- 2021-10-10: [Node.js 如何做多线程]()
+- 2021-10-11: [Webpack chunk 分包具体逻辑]()
+- 2021-10-11: [Infinite scroll 如何实现，特别是上划之后怎么删除之前的元素才能保证页面不抖动]()
+- 2021-10-11: [AST 解析具体逻辑]()
+- 2021-10-11: [用 useMemo 实现一个 useCallback]() -->
