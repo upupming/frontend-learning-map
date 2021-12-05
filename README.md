@@ -22,6 +22,7 @@
 - [深入理解 ES6](https://github.com/nzakas/understandinges6)
 - [Webpack实战：入门、进阶与调优](https://book.douban.com/subject/34430881/)
 - [JavaScript设计模式与开发实践](https://book.douban.com/subject/26382780/)
+- [编译原理(龙书)-第二版](books/编译原理(龙书)%20第二版.pdf)
 
 ## 官方文档
 
@@ -162,7 +163,8 @@
 - 2021-09-19: [VSCode WebView 开发架构](daily-fe-problems/vscode-webview.md)
 - 2021-09-26: [validate-npm-package-name 源码解析](daily-fe-problems/validate-npm-package-name-analysis.md)
 - 2021-10-09: [create-vue 发布并成为官方推荐](daily-fe-problems/create-vue-learning.md)
-- 2021-10-09: [为什么 React hooks 不能写在 if 判断中](daily-fe-problems/why-cannot-conditional-react-hooks.md)
+- 2021-11-24: [为什么 React hooks 不能写在 if 判断中](daily-fe-problems/why-cannot-conditional-react-hooks.md)
+- 2021-12-05: [Element UI 新建组件脚本](daily-fe-problems/element-new.md)
 
 <!--
 - 2021-10-10: [Node.js 如何做多线程]()
