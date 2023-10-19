@@ -165,10 +165,17 @@
 - 2021-10-09: [create-vue 发布并成为官方推荐](daily-fe-problems/create-vue-learning.md)
 - 2021-11-24: [为什么 React hooks 不能写在 if 判断中](daily-fe-problems/why-cannot-conditional-react-hooks.md)
 - 2021-12-05: [Element UI 新建组件脚本](daily-fe-problems/element-new.md)
+- 2023-10-19: [Node.js PDF Chat 实现](daily-fe-problems/2023-10-19-chat-pdf.md)
 
 <!--
 - 2021-10-10: [Node.js 如何做多线程]()
 - 2021-10-11: [Webpack chunk 分包具体逻辑]()
 - 2021-10-11: [Infinite scroll 如何实现，特别是上划之后怎么删除之前的元素才能保证页面不抖动]()
 - 2021-10-11: [AST 解析具体逻辑]()
-- 2021-10-11: [用 useMemo 实现一个 useCallback]() -->
+- 2021-10-11: [用 useMemo 实现一个 useCallback]()
+- 发红包分配问题
+- 手写几个现有的 React Hook
+- https 详解
+- 1px 问题
+- 移动端适配
+-  -->
