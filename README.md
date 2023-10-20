@@ -166,6 +166,7 @@
 - 2021-11-24: [为什么 React hooks 不能写在 if 判断中](daily-fe-problems/why-cannot-conditional-react-hooks.md)
 - 2021-12-05: [Element UI 新建组件脚本](daily-fe-problems/element-new.md)
 - 2023-10-19: [Node.js PDF Chat 实现](daily-fe-problems/2023-10-19-chat-pdf.md)
+- 2023-10-20: [HTTP 各版本区别](daily-fe-problems/2023-10-20-http-versions.md)
 
 <!--
 - 2021-10-10: [Node.js 如何做多线程]()
